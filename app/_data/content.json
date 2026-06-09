@@ -64,14 +64,21 @@
           "strong": true
         },
         {
-          "t": " — from university labs to a 12,000-person aerospace company. Now "
+          "t": " — from university labs and small business to enterprise scale. Now "
         },
         {
           "t": "AI Enablement Lead at Zillow",
           "strong": true
         },
         {
-          "t": " and founder of the studio Chaotic Curiosity."
+          "t": " and founder of "
+        },
+        {
+          "t": "Chaotic Curiosity",
+          "strong": true
+        },
+        {
+          "t": "."
         }
       ],
       "ctas": [
@@ -115,14 +122,14 @@
       "cards": [
         {
           "title": "AI Enablement at Zillow",
-          "blurb": "Took company-wide AI adoption from 30% to 75%+ for a 2,700-person org in two months.",
+          "blurb": "Own enterprise adoption and quality for a 2,700-person org technical org. Highlight: Increased agentic tooling adoption from 30 to >75% over two months in Product and Design orgs, with time savings across administrative and production workflows.",
           "href": "/ai",
-          "media": "/media/ai/ai__you-plus-ai-workshop.jpg",
+          "media": "/media/ai/ai__don-at-pd-summit.jpg",
           "tag": "AI"
         },
         {
           "title": "Humanoid Robotics (RL)",
-          "blurb": "Sim-to-real cartwheels and backflips on a Unitree H2 with Pooladvand Lab at ASU — Isaac Lab, NVIDIA GR00T, MuJoCo.",
+          "blurb": "Sim-to-real cartwheels, backflips, and walking policies on a Unitree H2 EDU with Pooladvand Lab at ASU using Isaac Lab, NVIDIA GR00T, and MuJoCo.",
           "href": "/robotics",
           "media": "/media/robotics/robotics__humanoid-cartwheel-rl.mp4",
           "tag": "Robotics"
@@ -131,7 +138,7 @@
           "title": "Image → 3D Pipeline for Kiewet Construction Safety Training",
           "blurb": "A pipeline that turns a single site photo into clean, rigged 3D for safety training.",
           "href": "/ai",
-          "media": "/media/ai/ai__kiewet-imagegen.png",
+          "media": "/media/ai/ai__kiewet-jug-sidebyside.png",
           "tag": "AI · 3D"
         },
         {
@@ -145,7 +152,7 @@
           "title": "Museum XR: Afrobotica & Earthlight",
           "blurb": "I brought Afrobotica, the character of astronaut-artist Dr. Sian Proctor to life in an immersive dome experience built for the Museum of Science, Boston.",
           "href": "/xr",
-          "media": "/media/xr/xr__don-in-vr.jpg",
+          "media": "/media/xr/xr__earthlight-hero.png",
           "tag": "XR"
         },
         {
@@ -186,12 +193,12 @@
         "variant": "primary",
         "external": true
       },
-      "video": "/media/ai/ai__chaotic-curiosity-reel.mp4"
+      "video": "/media/ai/ai__earth-in-earthlight-2.png"
     },
     "contact": {
       "kicker": "Get in touch",
       "title": "Let's build something.",
-      "blurb": "Open to leadership roles in AI enablement — and to a good conversation about hard problems.",
+      "blurb": "Open to leadership roles in AI/XR enablement and development — and to a good conversation about hard problems that matter.",
       "ctas": [
         {
           "label": "Email me",

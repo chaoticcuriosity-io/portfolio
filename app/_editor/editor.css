@@ -54,6 +54,8 @@
 .cc-eb-btn:hover:not(:disabled) { background: rgba(255, 255, 255, 0.12); }
 .cc-eb-save { background: #6ea8fe; color: #08101f; border-color: #6ea8fe; font-weight: 600; }
 .cc-eb-save:hover:not(:disabled) { background: #87b6ff; }
+.cc-eb-publish { background: #34d399; color: #08101f; border-color: #34d399; font-weight: 600; }
+.cc-eb-publish:hover:not(:disabled) { background: #4ade80; }
 .cc-eb-sep { width: 1px; height: 20px; background: rgba(255, 255, 255, 0.12); }
 .cc-eb-grow { flex: 1; min-width: 6px; }
 .cc-eb-dirty { color: #fbbf24; font-size: 12px; white-space: nowrap; }

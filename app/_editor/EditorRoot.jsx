@@ -8,6 +8,7 @@ import "./editor.css";
 export default function EditorRoot() {
   const [mounted, setMounted] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [publishing, setPublishing] = useState(false);
   const [status, setStatus] = useState(null); // { ok, msg }
 
   const editing = useEditorStore((s) => s.editing);
@@ -61,6 +62,50 @@ export default function EditorRoot() {
     }
   }
 
+  async function publish() {
+    const okToGo = window.confirm(
+      "Publish your changes?\n\nThis commits content + media and pushes to GitHub. If this branch is connected to Vercel, the live site redeploys in ~1 minute."
+    );
+    if (!okToGo) return;
+
+    setPublishing(true);
+    setStatus(null);
+    try {
+      // Persist any unsaved edits first so the commit includes them.
+      if (useEditorStore.getState().dirty) {
+        const sres = await fetch("/api/dev/content", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(useEditorStore.getState().content),
+        });
+        if (!sres.ok) throw new Error("Save before publish failed");
+        markSaved();
+      }
+      const res = await fetch("/api/dev/publish", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: "content: site edits via visual editor" }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) {
+        const lastErr =
+          (data.steps || []).filter((s) => !s.ok).map((s) => (s.stderr || "").trim()).filter(Boolean).join(" · ") ||
+          data.error ||
+          res.statusText;
+        throw new Error(lastErr);
+      }
+      setStatus(
+        data.nothingToCommit
+          ? { ok: true, msg: "Nothing new to publish" }
+          : { ok: true, msg: `Published to ${data.branch} ✓ — Vercel redeploys shortly` }
+      );
+    } catch (e) {
+      setStatus({ ok: false, msg: "Publish failed: " + e.message });
+    } finally {
+      setPublishing(false);
+    }
+  }
+
   return (
     <div className="cc-editor-bar" data-editing={editing ? "1" : "0"}>
       <button
@@ -83,6 +128,9 @@ export default function EditorRoot() {
           <button className="cc-eb-btn" onClick={discard} disabled={!dirty}>Discard</button>
           <button className="cc-eb-btn cc-eb-save" onClick={save} disabled={!dirty || saving}>
             {saving ? "Saving…" : "Save"}
+          </button>
+          <button className="cc-eb-btn cc-eb-publish" onClick={publish} disabled={publishing}>
+            {publishing ? "Publishing…" : "Publish"}
           </button>
         </>
       )}

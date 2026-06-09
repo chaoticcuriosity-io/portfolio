@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useContent } from "../_components/editable/context";
-import { RichText } from "../_components/editable/RichText";
+import EditableText from "../_components/editable/EditableText";
+import EditableRichText from "../_components/editable/EditableRichText";
 import { resolveRef } from "../_data/site";
 
 const H4_HEAD = { fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--faint)", margin: "26px 0 12px" };
@@ -16,9 +17,9 @@ export default function AboutView() {
       <section className="dhero">
         <div className="wrap">
           <Link className="backlink" href="/">← Home</Link>
-          <div className="kicker">{about.kicker}</div>
-          <h1 className="serif">{about.title}</h1>
-          <p className="tagline">{about.tagline}</p>
+          <EditableText as="div" className="kicker" value={about.kicker} path="about.kicker" />
+          <EditableText as="h1" className="serif" value={about.title} path="about.title" />
+          <EditableText as="p" className="tagline" value={about.tagline} path="about.tagline" />
         </div>
       </section>
 
@@ -26,7 +27,7 @@ export default function AboutView() {
         <div className="about-grid">
           <div>
             {about.paragraphs.map((para, i) => (
-              <p key={i}><RichText tokens={para} /></p>
+              <EditableRichText key={i} as="p" tokens={para} path={`about.paragraphs.${i}`} />
             ))}
 
             <h4 style={H4_HEAD}>{about.standForHeading}</h4>
@@ -37,7 +38,9 @@ export default function AboutView() {
             ))}
 
             <h4 style={H4_HEAD}>{about.educationHeading}</h4>
-            {about.education.map((e) => <p key={e}>{e}</p>)}
+            {about.education.map((e, i) => (
+              <EditableText key={i} as="p" multiline value={e} path={`about.education.${i}`} />
+            ))}
           </div>
 
           <aside className="about-side">

@@ -1,12 +1,18 @@
 "use client";
-// Phase 2: a static, read-only provider seeded from the server with the content object.
-// The dev-only editing layer (zustand store, edit toggle, mutators) is layered on in Phase 3
-// by replacing the value provided here — Views consume the same context either way.
+// In production this is a static, read-only pass-through (editing always false) — none of the
+// editor code below the dev branch is bundled, because `process.env.NODE_ENV` is statically
+// replaced at build time and the dead branch (incl. its require) is eliminated.
 import { EditingContext } from "./context";
 
 const noop = () => {};
 
 export default function EditorProvider({ initialContent, children }) {
+  if (process.env.NODE_ENV !== "production") {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const DevEditorProvider = require("./DevEditorProvider").default;
+    return <DevEditorProvider initialContent={initialContent}>{children}</DevEditorProvider>;
+  }
+
   const value = {
     content: initialContent,
     editing: false,

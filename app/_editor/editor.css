@@ -1,0 +1,72 @@
+/* Visual editor chrome — loaded only in dev (imported by the dev-only EditorRoot). */
+
+.cc-editor-bar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  background: rgba(10, 13, 24, 0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(110, 168, 254, 0.28);
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55);
+  font: 500 13px/1 Inter, system-ui, sans-serif;
+  color: #e8ecf6;
+  max-width: calc(100vw - 28px);
+  flex-wrap: wrap;
+}
+.cc-editor-bar button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  border-radius: 9px;
+  padding: 7px 11px;
+}
+.cc-editor-bar button:disabled { opacity: 0.4; cursor: default; }
+
+.cc-eb-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  background: rgba(110, 168, 254, 0.14);
+  border: 1px solid rgba(110, 168, 254, 0.3);
+}
+.cc-editor-bar[data-editing="1"] .cc-eb-toggle {
+  background: rgba(251, 191, 36, 0.16);
+  border-color: rgba(251, 191, 36, 0.42);
+  color: #fbbf24;
+}
+.cc-eb-led { width: 8px; height: 8px; border-radius: 50%; background: #6ea8fe; box-shadow: 0 0 8px #6ea8fe; }
+.cc-editor-bar[data-editing="1"] .cc-eb-led { background: #fbbf24; box-shadow: 0 0 10px #fbbf24; animation: cc-pulse 1.6s ease-in-out infinite; }
+@keyframes cc-pulse { 50% { opacity: 0.45; } }
+
+.cc-eb-icon { font-size: 15px; padding: 6px 9px; }
+.cc-eb-btn { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); }
+.cc-eb-btn:hover:not(:disabled) { background: rgba(255, 255, 255, 0.12); }
+.cc-eb-save { background: #6ea8fe; color: #08101f; border-color: #6ea8fe; font-weight: 600; }
+.cc-eb-save:hover:not(:disabled) { background: #87b6ff; }
+.cc-eb-sep { width: 1px; height: 20px; background: rgba(255, 255, 255, 0.12); }
+.cc-eb-grow { flex: 1; min-width: 6px; }
+.cc-eb-dirty { color: #fbbf24; font-size: 12px; white-space: nowrap; }
+.cc-eb-ok { color: #34d399; font-size: 12px; }
+.cc-eb-err { color: #f87171; font-size: 12px; max-width: 280px; }
+
+/* Inline-edit affordances — these elements only exist while editing. */
+[data-cc-edit] {
+  outline: 1px dashed transparent;
+  outline-offset: 3px;
+  border-radius: 3px;
+  transition: outline-color 0.15s, background 0.15s;
+  cursor: text;
+}
+[data-cc-edit]:hover { outline-color: rgba(110, 168, 254, 0.55); background: rgba(110, 168, 254, 0.06); }
+[data-cc-edit]:focus { outline: 2px solid #6ea8fe; outline-offset: 3px; background: rgba(110, 168, 254, 0.08); }

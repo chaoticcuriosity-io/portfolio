@@ -2,7 +2,8 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import { useContent } from "../_components/editable/context";
-import { RichText } from "../_components/editable/RichText";
+import EditableText from "../_components/editable/EditableText";
+import EditableRichText from "../_components/editable/EditableRichText";
 import { resolveRef, isVideo } from "../_data/site";
 
 function Cta({ cta }) {
@@ -26,16 +27,16 @@ export default function HomeView() {
       <header className="hero">
         <div className="wrap hero-grid">
           <div>
-            <p className="eyebrow">{home.hero.eyebrow}</p>
-            <h1 className="serif"><RichText tokens={home.hero.headline} /></h1>
-            <p className="lede"><RichText tokens={home.hero.lede} /></p>
+            <EditableText as="p" className="eyebrow" value={home.hero.eyebrow} path="home.hero.eyebrow" />
+            <EditableRichText as="h1" className="serif" tokens={home.hero.headline} path="home.hero.headline" />
+            <EditableRichText as="p" className="lede" tokens={home.hero.lede} path="home.hero.lede" />
             <div className="cta-row">
               {home.hero.ctas.map((cta, i) => <Cta key={i} cta={cta} />)}
             </div>
           </div>
           <div className="portrait">
             <img src={profile.heroImage} alt={home.hero.portraitAlt} />
-            <div className="tag mono"><RichText tokens={home.hero.portraitTag} /></div>
+            <EditableRichText as="div" className="tag mono" tokens={home.hero.portraitTag} path="home.hero.portraitTag" />
           </div>
         </div>
       </header>
@@ -44,7 +45,9 @@ export default function HomeView() {
     mission: () => (
       <section className="mission">
         <div className="wrap">
-          {home.mission.map((m) => <p key={m}>{m}</p>)}
+          {home.mission.map((m, i) => (
+            <EditableText key={i} as="p" value={m} path={`home.mission.${i}`} />
+          ))}
         </div>
       </section>
     ),
@@ -53,9 +56,9 @@ export default function HomeView() {
       <section className="block">
         <div className="wrap">
           <div className="head">
-            <div className="kicker">{home.wins.head.kicker}</div>
-            <h2 className="serif">{home.wins.head.title}</h2>
-            <p>{home.wins.head.blurb}</p>
+            <EditableText as="div" className="kicker" value={home.wins.head.kicker} path="home.wins.head.kicker" />
+            <EditableText as="h2" className="serif" value={home.wins.head.title} path="home.wins.head.title" />
+            <EditableText as="p" multiline value={home.wins.head.blurb} path="home.wins.head.blurb" />
           </div>
           <div className="wins">
             {home.wins.cards.map((w) => (
@@ -81,9 +84,9 @@ export default function HomeView() {
       <section className="block" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <div className="head">
-            <div className="kicker">{home.domains.head.kicker}</div>
-            <h2 className="serif">{home.domains.head.title}</h2>
-            <p>{home.domains.head.blurb}</p>
+            <EditableText as="div" className="kicker" value={home.domains.head.kicker} path="home.domains.head.kicker" />
+            <EditableText as="h2" className="serif" value={home.domains.head.title} path="home.domains.head.title" />
+            <EditableText as="p" multiline value={home.domains.head.blurb} path="home.domains.head.blurb" />
           </div>
           <div className="domains">
             {home.domains.order.map((slug) => {
@@ -112,8 +115,8 @@ export default function HomeView() {
           <div className="cc-band">
             <div>
               <img className="cc-logo" src={home.studio.logo} alt={home.studio.logoAlt} />
-              <h2 className="serif">{home.studio.title}</h2>
-              <p>{home.studio.body}</p>
+              <EditableText as="h2" className="serif" value={home.studio.title} path="home.studio.title" />
+              <EditableText as="p" multiline value={home.studio.body} path="home.studio.body" />
               <Cta cta={home.studio.button} />
             </div>
             <div className="media">
@@ -127,9 +130,9 @@ export default function HomeView() {
     contact: () => (
       <section className="contact">
         <div className="wrap">
-          <div className="kicker mono">{home.contact.kicker}</div>
-          <h2 className="serif">{home.contact.title}</h2>
-          <p>{home.contact.blurb}</p>
+          <EditableText as="div" className="kicker mono" value={home.contact.kicker} path="home.contact.kicker" />
+          <EditableText as="h2" className="serif" value={home.contact.title} path="home.contact.title" />
+          <EditableText as="p" multiline value={home.contact.blurb} path="home.contact.blurb" />
           <div className="cta-row">
             {home.contact.ctas.map((cta, i) => <Cta key={i} cta={cta} />)}
           </div>

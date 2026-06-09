@@ -4,19 +4,25 @@ import { isVideo } from "../_data/site";
 import { useEditorCtx } from "./editable/context";
 import EditableMedia, { folderFromSrc } from "./editable/EditableMedia";
 import EditableText from "./editable/EditableText";
-import MediaLibrary from "./editable/MediaLibrary";
 import Sortable from "./editable/Sortable";
 import SortableItem from "./editable/SortableItem";
 import { DragHandle, RemoveButton } from "./editable/controls";
 
+let loadLibrary = null;
+if (process.env.NODE_ENV !== "production") {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  loadLibrary = () => require("./editable/MediaLibrary").default;
+}
+
 function AddMediaTile({ basePath, folder, addItem }) {
   const [picking, setPicking] = useState(false);
+  const MediaLibrary = picking && loadLibrary ? loadLibrary() : null;
   return (
     <>
       <button type="button" className="tile cc-add-tile" onClick={() => setPicking(true)}>
         + Add media
       </button>
-      {picking && (
+      {MediaLibrary && (
         <MediaLibrary
           folder={folder}
           currentSrc={null}

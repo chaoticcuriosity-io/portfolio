@@ -4,7 +4,12 @@
 // the media library and commits the chosen src to `path`.
 import { useState } from "react";
 import { useEditing, useEditorCtx } from "./context";
-import MediaLibrary from "./MediaLibrary";
+
+let loadLibrary = null;
+if (process.env.NODE_ENV !== "production") {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  loadLibrary = () => require("./MediaLibrary").default;
+}
 
 export function folderFromSrc(src) {
   const m = /^\/media\/([^/]+)\/[^/]+$/.exec(src || "");
@@ -29,6 +34,8 @@ export default function EditableMedia({ children, path, src, folder }) {
     if (newSrc && newSrc !== src) commit(path, newSrc);
   };
 
+  const MediaLibrary = picking && loadLibrary ? loadLibrary() : null;
+
   return (
     <span className="cc-media" data-cc-media>
       {children}
@@ -42,7 +49,7 @@ export default function EditableMedia({ children, path, src, folder }) {
       >
         ⟳ Replace
       </span>
-      {picking && (
+      {MediaLibrary && (
         <MediaLibrary
           currentSrc={src}
           folder={folder || folderFromSrc(src) || "personal"}

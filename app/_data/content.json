@@ -8,57 +8,109 @@
     "linkedin": "https://linkedin.com/in/donbalanzat",
     "github": "https://github.com/chaoticcuriosity-io",
     "resume": "/resume/don-balanzat-resume.pdf",
-    "heroImage": "/media/space/space__don-space-headshot.jpg",
-    "studio": { "name": "Chaotic Curiosity", "url": "https://chaoticcuriosity.io" }
+    "heroImage": "/media/personal/personal__profile-color.png",
+    "studio": {
+      "name": "Chaotic Curiosity",
+      "url": "https://chaoticcuriosity.io"
+    }
   },
-
   "home": {
     "sections": [
-      { "id": "hero", "visible": true },
-      { "id": "mission", "visible": true },
-      { "id": "wins", "visible": true },
-      { "id": "domains", "visible": true },
-      { "id": "studio", "visible": true },
-      { "id": "contact", "visible": true }
+      {
+        "id": "hero",
+        "visible": true
+      },
+      {
+        "id": "mission",
+        "visible": true
+      },
+      {
+        "id": "wins",
+        "visible": true
+      },
+      {
+        "id": "domains",
+        "visible": true
+      },
+      {
+        "id": "studio",
+        "visible": true
+      },
+      {
+        "id": "contact",
+        "visible": true
+      }
     ],
-
     "hero": {
-      "eyebrow": "Physicist · Engineer · Builder",
+      "eyebrow": "PHYSICIST · ENGINEER · BUILDER · EDUCATOR",
       "headline": [
-        { "t": "I make hard technology " },
-        { "t": "usable", "em": true },
-        { "t": "." }
+        {
+          "t": "I make hard technology "
+        },
+        {
+          "t": "usable",
+          "em": true
+        },
+        {
+          "t": "."
+        }
       ],
       "lede": [
-        { "t": "A decade building and teaching across " },
-        { "t": "physics, space, immersive reality, robotics, and AI", "strong": true },
-        { "t": " — from university labs to a 12,000-person aerospace company. Now " },
-        { "t": "AI Enablement Lead at Zillow", "strong": true },
-        { "t": " and founder of the studio Chaotic Curiosity." }
+        {
+          "t": "A decade building and teaching across "
+        },
+        {
+          "t": "physics, space, immersive reality, robotics, and AI",
+          "strong": true
+        },
+        {
+          "t": " — from university labs to a 12,000-person aerospace company. Now "
+        },
+        {
+          "t": "AI Enablement Lead at Zillow",
+          "strong": true
+        },
+        {
+          "t": " and founder of the studio Chaotic Curiosity."
+        }
       ],
       "ctas": [
-        { "label": "See the work", "href": "/ai", "variant": "primary", "external": false },
-        { "label": "Chaotic Curiosity ↗", "href": "@profile.studio.url", "variant": "ghost", "external": true },
-        { "label": "Résumé", "href": "@profile.resume", "variant": "ghost", "external": true }
+        {
+          "label": "See the work",
+          "href": "/ai",
+          "variant": "primary",
+          "external": false
+        },
+        {
+          "label": "Chaotic Curiosity ↗",
+          "href": "@profile.studio.url",
+          "variant": "ghost",
+          "external": true
+        },
+        {
+          "label": "Résumé",
+          "href": "@profile.resume",
+          "variant": "ghost",
+          "external": true
+        }
       ],
       "portraitAlt": "Don Balanzat",
       "portraitTag": [
-        { "t": "Phoenix, AZ · " },
-        { "t": "open to work", "b": true }
+        {
+          "t": "Phoenix, AZ"
+        }
       ]
     },
-
     "mission": [
       "For the benefit of Earth and the diversity of its inhabitants.",
-      "AI is powerful enough to change everything — I choose to use it for good.",
-      "Learning is built, not delivered. Find people who believe in you, then be that person for someone else."
+      "AI is powerful enough to change everything. I choose to use it for good.",
+      "It is not enough to focus on building alone - we must share what we build with others."
     ],
-
     "wins": {
       "head": {
         "kicker": "Recent & biggest wins",
-        "title": "What I've been building lately.",
-        "blurb": "The most recent, highest-impact work — from enterprise AI adoption to humanoid robots that learn to move."
+        "title": "What I've been doing lately.",
+        "blurb": "The most recent, highest-impact work, from enterprise AI adoption to humanoid robots that learn to move."
       },
       "cards": [
         {
@@ -70,96 +122,152 @@
         },
         {
           "title": "Humanoid Robotics (RL)",
-          "blurb": "Sim-to-real cartwheels and backflips on a Unitree H2 — Isaac Lab, NVIDIA GR00T, MuJoCo.",
+          "blurb": "Sim-to-real cartwheels and backflips on a Unitree H2 with Pooladvand Lab at ASU — Isaac Lab, NVIDIA GR00T, MuJoCo.",
           "href": "/robotics",
           "media": "/media/robotics/robotics__humanoid-cartwheel-rl.mp4",
           "tag": "Robotics"
         },
         {
-          "title": "Image → 3D for Construction Safety",
+          "title": "Image → 3D Pipeline for Kiewet Construction Safety Training",
           "blurb": "A pipeline that turns a single site photo into clean, rigged 3D for safety training.",
           "href": "/ai",
-          "media": "/media/ai/ai__kiewet-3d-model.png",
+          "media": "/media/ai/ai__kiewet-imagegen.png",
           "tag": "AI · 3D"
         },
         {
           "title": "Space at Blue Origin",
-          "blurb": "XR/AI tooling across every vehicle program, scaled to 12,000+ users. New Glenn, Blue Moon.",
+          "blurb": "XR/AI tooling across every vehicle program, scaled to the entire company of 12,000+ users. Decentralized, multi-location VR/AR capabilities and AI Enablement for teams.",
           "href": "/space",
-          "media": "/media/space/space__new-glenn-liftoff.jpg",
+          "media": "/media/space/space__don-blue-moon.jpg",
           "tag": "Space"
         },
         {
           "title": "Museum XR: Afrobotica & Earthlight",
-          "blurb": "Immersive dome experiences built for the Museum of Science, Boston.",
+          "blurb": "I brought Afrobotica, the character of astronaut-artist Dr. Sian Proctor to life in an immersive dome experience built for the Museum of Science, Boston.",
           "href": "/xr",
-          "media": "/media/xr/xr__being-water-vr.jpg",
+          "media": "/media/xr/xr__don-in-vr.jpg",
           "tag": "XR"
         },
         {
-          "title": "Gaussian-Splat Pipeline",
-          "blurb": "Turn image and video into immersive-ready 3D for web, VR, Unity, and Unreal.",
+          "title": "HoloLens 2 AR Moon Education",
+          "blurb": "In collaboration with Jordan Space Research Institute, we deployed an augmented reality educational experience about the phases of the moon.",
           "href": "/xr",
           "media": "/media/xr/xr__moon-day-viewer-splat.mp4",
           "tag": "XR · 3D"
         }
       ]
     },
-
     "domains": {
       "head": {
         "kicker": "Explore by domain",
         "title": "Depth and breadth.",
         "blurb": "Five technical domains plus a decade of teaching — each its own world of work."
       },
-      "order": ["ai", "space", "xr", "robotics", "physics", "education"],
-      "beyondCard": { "arrow": "Music, activism & life →" }
+      "order": [
+        "ai",
+        "space",
+        "xr",
+        "robotics",
+        "physics",
+        "education"
+      ],
+      "beyondCard": {
+        "arrow": "Music, activism & life →"
+      }
     },
-
     "studio": {
       "logo": "/media/cc-logo.png",
       "logoAlt": "Chaotic Curiosity",
       "title": "My studio: Chaotic Curiosity",
       "body": "A boutique studio building XR, AI, robotics, and media — for museums, universities, startups, and research labs. It's where a lot of this work actually happens.",
-      "button": { "label": "Visit chaoticcuriosity.io ↗", "href": "@profile.studio.url", "variant": "primary", "external": true },
+      "button": {
+        "label": "Visit chaoticcuriosity.io ↗",
+        "href": "@profile.studio.url",
+        "variant": "primary",
+        "external": true
+      },
       "video": "/media/ai/ai__chaotic-curiosity-reel.mp4"
     },
-
     "contact": {
       "kicker": "Get in touch",
       "title": "Let's build something.",
       "blurb": "Open to leadership roles in AI enablement — and to a good conversation about hard problems.",
       "ctas": [
-        { "label": "Email me", "href": "@mailto:profile.email", "variant": "primary", "external": false },
-        { "label": "LinkedIn", "href": "@profile.linkedin", "variant": "ghost", "external": true },
-        { "label": "Résumé", "href": "@profile.resume", "variant": "ghost", "external": true }
+        {
+          "label": "Email me",
+          "href": "@mailto:profile.email",
+          "variant": "primary",
+          "external": false
+        },
+        {
+          "label": "LinkedIn",
+          "href": "@profile.linkedin",
+          "variant": "ghost",
+          "external": true
+        },
+        {
+          "label": "Résumé",
+          "href": "@profile.resume",
+          "variant": "ghost",
+          "external": true
+        }
       ]
     }
   },
-
   "about": {
     "kicker": "About",
     "title": "About",
     "tagline": "Physicist turned engineer turned enabler.",
     "paragraphs": [
       [
-        { "t": "I've spent a decade making hard technology usable — in classrooms, on factory floors, and across a 12,000-person aerospace company. I lead " },
-        { "t": "AI enablement at Zillow", "strong": true },
-        { "t": ", and I run " },
-        { "t": "Chaotic Curiosity", "strong": true },
-        { "t": ", a studio building XR, AI, and robotics for museums, universities, startups, and research labs." }
+        {
+          "t": "I've spent a decade making hard technology usable — in classrooms, on factory floors, and across a 12,000-person aerospace company. I lead "
+        },
+        {
+          "t": "AI enablement at Zillow",
+          "strong": true
+        },
+        {
+          "t": ", and I run "
+        },
+        {
+          "t": "Chaotic Curiosity",
+          "strong": true
+        },
+        {
+          "t": ", a studio building XR, AI, and robotics for museums, universities, startups, and research labs."
+        }
       ],
       [
-        { "t": "Before Zillow I was XR/AI Engineering Lead at " },
-        { "t": "Blue Origin", "strong": true },
-        { "t": ", where I built emerging-tech capability from zero across every vehicle program and worked inside ITAR / export-controlled environments — the regulated-data side of responsible AI. I started as a physicist, spent six years running university physics labs, and I've never stopped teaching." }
+        {
+          "t": "Before Zillow I was XR/AI Engineering Lead at "
+        },
+        {
+          "t": "Blue Origin",
+          "strong": true
+        },
+        {
+          "t": ", where I built emerging-tech capability from zero across every vehicle program and worked inside ITAR / export-controlled environments — the regulated-data side of responsible AI. I started as a physicist, spent six years running university physics labs, and I've never stopped teaching."
+        }
       ],
       [
-        { "t": "Today I'm happiest when I'm shipping: agents and internal tools, ML pipelines, immersive systems, and humanoid robots that learn to move. I'm a " },
-        { "t": "2× Blue Origin Liftoff Award", "strong": true },
-        { "t": "winner and a " },
-        { "t": "Space for Humanity", "strong": true },
-        { "t": " citizen-astronaut finalist." }
+        {
+          "t": "Today I'm happiest when I'm shipping: agents and internal tools, ML pipelines, immersive systems, and humanoid robots that learn to move. I'm a "
+        },
+        {
+          "t": "2× Blue Origin Liftoff Award",
+          "strong": true
+        },
+        {
+          "t": "winner and a "
+        },
+        {
+          "t": "Space for Humanity",
+          "strong": true
+        },
+        {
+          "t": " citizen-astronaut finalist."
+        }
       ]
     ],
     "standForHeading": "What I stand for",
@@ -180,11 +288,9 @@
     "sideImage": "@profile.heroImage",
     "sideImageAlt": "Don Balanzat"
   },
-
   "footer": {
     "blurbSuffix": ". Building for the benefit of Earth and the diversity of its inhabitants."
   },
-
   "domainsData": {
     "ai": {
       "slug": "ai",
@@ -200,12 +306,33 @@
         "Run the 'You + AI' workshop series and teach Hyperspace: XR + AI at ASU."
       ],
       "media": [
-        { "src": "/media/ai/ai__you-plus-ai-workshop.jpg", "alt": "You + AI workshop session" },
-        { "src": "/media/ai/ai__kiewet-source-photo.png", "alt": "Source site photo — input to the image→3D pipeline", "caption": "1 · Source photo" },
-        { "src": "/media/ai/ai__kiewet-imagegen.png", "alt": "AI-generated clean reference of a steel beam", "caption": "2 · AI image generation" },
-        { "src": "/media/ai/ai__kiewet-3d-model.png", "alt": "Cleaned, rigged 3D model turntable", "caption": "3 · Generated 3D model" },
-        { "src": "/media/ai/ai__llm-experience.mp4", "alt": "LLM experience demo" },
-        { "src": "/media/ai/ai__vfx-clip.mp4", "alt": "Generative VFX clip" }
+        {
+          "src": "/media/ai/ai__you-plus-ai-workshop.jpg",
+          "alt": "You + AI workshop session"
+        },
+        {
+          "src": "/media/ai/ai__kiewet-source-photo.png",
+          "alt": "Source site photo — input to the image→3D pipeline",
+          "caption": "1 · Source photo"
+        },
+        {
+          "src": "/media/ai/ai__kiewet-imagegen.png",
+          "alt": "AI-generated clean reference of a steel beam",
+          "caption": "2 · AI image generation"
+        },
+        {
+          "src": "/media/ai/ai__kiewet-3d-model.png",
+          "alt": "Cleaned, rigged 3D model turntable",
+          "caption": "3 · Generated 3D model"
+        },
+        {
+          "src": "/media/ai/ai__llm-experience.mp4",
+          "alt": "LLM experience demo"
+        },
+        {
+          "src": "/media/ai/ai__vfx-clip.mp4",
+          "alt": "Generative VFX clip"
+        }
       ]
     },
     "space": {
@@ -222,14 +349,38 @@
         "2× Blue Origin Liftoff Award · Space for Humanity citizen-astronaut finalist."
       ],
       "media": [
-        { "src": "/media/space/space__don-blue-moon.jpg", "alt": "Don in front of the Blue Moon lunar lander" },
-        { "src": "/media/space/space__new-glenn-liftoff.jpg", "alt": "New Glenn liftoff" },
-        { "src": "/media/space/space__new-glenn-slc36.jpg", "alt": "New Glenn at Space Launch Complex 36" },
-        { "src": "/media/space/space__blue-moon-thermal-vacuum.jpg", "alt": "Blue Moon in thermal-vacuum testing" },
-        { "src": "/media/space/space__new-shepard-booster-touchdown.jpg", "alt": "New Shepard booster touchdown" },
-        { "src": "/media/space/space__nasa-mret-demo.mp4", "alt": "NASA MRET scenario demonstration" },
-        { "src": "/media/space/space__earth-render.jpg", "alt": "Earth render" },
-        { "src": "/media/space/space__don-spacesuit.jpg", "alt": "Don in a spacesuit" }
+        {
+          "src": "/media/space/space__don-blue-moon.jpg",
+          "alt": "Don in front of the Blue Moon lunar lander"
+        },
+        {
+          "src": "/media/space/space__new-glenn-liftoff.jpg",
+          "alt": "New Glenn liftoff"
+        },
+        {
+          "src": "/media/space/space__new-glenn-slc36.jpg",
+          "alt": "New Glenn at Space Launch Complex 36"
+        },
+        {
+          "src": "/media/space/space__blue-moon-thermal-vacuum.jpg",
+          "alt": "Blue Moon in thermal-vacuum testing"
+        },
+        {
+          "src": "/media/space/space__new-shepard-booster-touchdown.jpg",
+          "alt": "New Shepard booster touchdown"
+        },
+        {
+          "src": "/media/space/space__nasa-mret-demo.mp4",
+          "alt": "NASA MRET scenario demonstration"
+        },
+        {
+          "src": "/media/space/space__earth-render.jpg",
+          "alt": "Earth render"
+        },
+        {
+          "src": "/media/space/space__don-spacesuit.jpg",
+          "alt": "Don in a spacesuit"
+        }
       ]
     },
     "xr": {
@@ -246,18 +397,54 @@
         "MS in XR for STEAM visualization (ASU); teaches Hyperspace: XR + AI."
       ],
       "media": [
-        { "src": "/media/xr/xr__visor-ui-walkthrough.mp4", "alt": "VISOR UI walkthrough" },
-        { "src": "/media/xr/xr__quest-pro-live-looping.mp4", "alt": "Live looping on Meta Quest Pro passthrough" },
-        { "src": "/media/xr/xr__moon-day-viewer-splat.mp4", "alt": "Gaussian-splat moon viewer" },
-        { "src": "/media/xr/xr__covid-campus-sim.mp4", "alt": "CovidCampus simulation" },
-        { "src": "/media/xr/xr__in-world-demo.mp4", "alt": "In-world VR demonstration" },
-        { "src": "/media/xr/xr__vr-world-demo.mp4", "alt": "VR world demo" },
-        { "src": "/media/xr/xr__being-water-vr.jpg", "alt": "Being Water VR experience" },
-        { "src": "/media/xr/xr__dreamscape-alien-zoo.png", "alt": "Dreamscape Learn Alien Zoo" },
-        { "src": "/media/xr/xr__don-in-vr.jpg", "alt": "Don in a VR headset" },
-        { "src": "/media/xr/xr__vr-meeting-avatars.jpg", "alt": "VR meeting with avatars" },
-        { "src": "/media/xr/xr__afrobotica-flow-diagram.png", "alt": "Afrobotica experience flow diagram" },
-        { "src": "/media/xr/xr__hyperspace-flyer.jpg", "alt": "Hyperspace: XR + AI course flyer" }
+        {
+          "src": "/media/xr/xr__visor-ui-walkthrough.mp4",
+          "alt": "VISOR UI walkthrough"
+        },
+        {
+          "src": "/media/xr/xr__quest-pro-live-looping.mp4",
+          "alt": "Live looping on Meta Quest Pro passthrough"
+        },
+        {
+          "src": "/media/xr/xr__moon-day-viewer-splat.mp4",
+          "alt": "Gaussian-splat moon viewer"
+        },
+        {
+          "src": "/media/xr/xr__covid-campus-sim.mp4",
+          "alt": "CovidCampus simulation"
+        },
+        {
+          "src": "/media/xr/xr__in-world-demo.mp4",
+          "alt": "In-world VR demonstration"
+        },
+        {
+          "src": "/media/xr/xr__vr-world-demo.mp4",
+          "alt": "VR world demo"
+        },
+        {
+          "src": "/media/xr/xr__being-water-vr.jpg",
+          "alt": "Being Water VR experience"
+        },
+        {
+          "src": "/media/xr/xr__dreamscape-alien-zoo.png",
+          "alt": "Dreamscape Learn Alien Zoo"
+        },
+        {
+          "src": "/media/xr/xr__don-in-vr.jpg",
+          "alt": "Don in a VR headset"
+        },
+        {
+          "src": "/media/xr/xr__vr-meeting-avatars.jpg",
+          "alt": "VR meeting with avatars"
+        },
+        {
+          "src": "/media/xr/xr__afrobotica-flow-diagram.png",
+          "alt": "Afrobotica experience flow diagram"
+        },
+        {
+          "src": "/media/xr/xr__hyperspace-flyer.jpg",
+          "alt": "Hyperspace: XR + AI course flyer"
+        }
       ]
     },
     "robotics": {
@@ -274,14 +461,38 @@
         "Reachy manipulation and teleoperation experiments."
       ],
       "media": [
-        { "src": "/media/robotics/robotics__humanoid-cartwheel-rl.mp4", "alt": "Humanoid cartwheel learned via RL" },
-        { "src": "/media/robotics/robotics__velocity-policy-progression.mp4", "alt": "Velocity policy training progression" },
-        { "src": "/media/robotics/robotics__humanoid-backflip.mp4", "alt": "Humanoid backflip reference" },
-        { "src": "/media/robotics/robotics__g1-progression-chase.mp4", "alt": "Humanoid progression, chase camera" },
-        { "src": "/media/robotics/robotics__isaac-lab-screencast.mp4", "alt": "Isaac Lab training screencast" },
-        { "src": "/media/robotics/robotics__reachy-hello.mp4", "alt": "Reachy robot waving hello" },
-        { "src": "/media/robotics/robotics__reachy-postman.mp4", "alt": "Reachy robot manipulation" },
-        { "src": "/media/robotics/robotics__robotics-clip.mp4", "alt": "Robotics development clip" }
+        {
+          "src": "/media/robotics/robotics__humanoid-cartwheel-rl.mp4",
+          "alt": "Humanoid cartwheel learned via RL"
+        },
+        {
+          "src": "/media/robotics/robotics__velocity-policy-progression.mp4",
+          "alt": "Velocity policy training progression"
+        },
+        {
+          "src": "/media/robotics/robotics__humanoid-backflip.mp4",
+          "alt": "Humanoid backflip reference"
+        },
+        {
+          "src": "/media/robotics/robotics__g1-progression-chase.mp4",
+          "alt": "Humanoid progression, chase camera"
+        },
+        {
+          "src": "/media/robotics/robotics__isaac-lab-screencast.mp4",
+          "alt": "Isaac Lab training screencast"
+        },
+        {
+          "src": "/media/robotics/robotics__reachy-hello.mp4",
+          "alt": "Reachy robot waving hello"
+        },
+        {
+          "src": "/media/robotics/robotics__reachy-postman.mp4",
+          "alt": "Reachy robot manipulation"
+        },
+        {
+          "src": "/media/robotics/robotics__robotics-clip.mp4",
+          "alt": "Robotics development clip"
+        }
       ]
     },
     "physics": {
@@ -297,18 +508,54 @@
         "Building PhLEx — an AI-native physics lab platform with ASU."
       ],
       "media": [
-        { "src": "/media/physics/physics__green-laser-diffraction.jpg", "alt": "Green-laser diffraction through a circular aperture (long exposure)" },
-        { "src": "/media/physics/physics__diffraction-patterns.png", "alt": "Diffraction patterns with parameters" },
-        { "src": "/media/physics/physics__polarizers.jpg", "alt": "Polarizers blocking light" },
-        { "src": "/media/physics/physics__thermal-imaging.jpg", "alt": "Thermal/infrared imaging" },
-        { "src": "/media/physics/physics__thermal-i-love-physics.png", "alt": "'I love physics' in thermal camera" },
-        { "src": "/media/physics/physics__rubens-tube-standing-waves.png", "alt": "Rubens tube standing waves" },
-        { "src": "/media/physics/physics__galton-board-sim.mp4", "alt": "Galton board simulation" },
-        { "src": "/media/physics/physics__metronome-entrainment.mp4", "alt": "Synchronized metronome entrainment" },
-        { "src": "/media/physics/physics__inertia-tablecloth-demo.mp4", "alt": "Tablecloth inertia demo" },
-        { "src": "/media/physics/physics__van-de-graaff.mp4", "alt": "Van de Graaff generator demo" },
-        { "src": "/media/physics/physics__circuits.mp4", "alt": "Circuits close-up" },
-        { "src": "/media/physics/physics__guitar-waveform-oscilloscope.mp4", "alt": "Guitar waveform on an oscilloscope" }
+        {
+          "src": "/media/physics/physics__green-laser-diffraction.jpg",
+          "alt": "Green-laser diffraction through a circular aperture (long exposure)"
+        },
+        {
+          "src": "/media/physics/physics__diffraction-patterns.png",
+          "alt": "Diffraction patterns with parameters"
+        },
+        {
+          "src": "/media/physics/physics__polarizers.jpg",
+          "alt": "Polarizers blocking light"
+        },
+        {
+          "src": "/media/physics/physics__thermal-imaging.jpg",
+          "alt": "Thermal/infrared imaging"
+        },
+        {
+          "src": "/media/physics/physics__thermal-i-love-physics.png",
+          "alt": "'I love physics' in thermal camera"
+        },
+        {
+          "src": "/media/physics/physics__rubens-tube-standing-waves.png",
+          "alt": "Rubens tube standing waves"
+        },
+        {
+          "src": "/media/physics/physics__galton-board-sim.mp4",
+          "alt": "Galton board simulation"
+        },
+        {
+          "src": "/media/physics/physics__metronome-entrainment.mp4",
+          "alt": "Synchronized metronome entrainment"
+        },
+        {
+          "src": "/media/physics/physics__inertia-tablecloth-demo.mp4",
+          "alt": "Tablecloth inertia demo"
+        },
+        {
+          "src": "/media/physics/physics__van-de-graaff.mp4",
+          "alt": "Van de Graaff generator demo"
+        },
+        {
+          "src": "/media/physics/physics__circuits.mp4",
+          "alt": "Circuits close-up"
+        },
+        {
+          "src": "/media/physics/physics__guitar-waveform-oscilloscope.mp4",
+          "alt": "Guitar waveform on an oscilloscope"
+        }
       ]
     },
     "education": {
@@ -325,13 +572,34 @@
         "Frequent keynote and panel speaker translating tech for technical and non-technical audiences."
       ],
       "media": [
-        { "src": "/media/education/education__lecture-audience.png", "alt": "Lecturing to a large audience" },
-        { "src": "/media/education/education__mentoring-mit-reality-hack.jpg", "alt": "Mentoring at MIT Reality Hack" },
-        { "src": "/media/education/education__teaching-workshop.jpg", "alt": "Teaching a workshop" },
-        { "src": "/media/education/education__convention-panel.jpg", "alt": "Speaking on a convention panel" },
-        { "src": "/media/education/education__azaapt-2019.jpg", "alt": "Presenting at AzAAPT 2019" },
-        { "src": "/media/education/education__tec-for-girls.jpg", "alt": "TEC is for Girls conference" },
-        { "src": "/media/education/education__speaker-talk.mp4", "alt": "Speaking engagement" }
+        {
+          "src": "/media/education/education__lecture-audience.png",
+          "alt": "Lecturing to a large audience"
+        },
+        {
+          "src": "/media/education/education__mentoring-mit-reality-hack.jpg",
+          "alt": "Mentoring at MIT Reality Hack"
+        },
+        {
+          "src": "/media/education/education__teaching-workshop.jpg",
+          "alt": "Teaching a workshop"
+        },
+        {
+          "src": "/media/education/education__convention-panel.jpg",
+          "alt": "Speaking on a convention panel"
+        },
+        {
+          "src": "/media/education/education__azaapt-2019.jpg",
+          "alt": "Presenting at AzAAPT 2019"
+        },
+        {
+          "src": "/media/education/education__tec-for-girls.jpg",
+          "alt": "TEC is for Girls conference"
+        },
+        {
+          "src": "/media/education/education__speaker-talk.mp4",
+          "alt": "Speaking engagement"
+        }
       ]
     },
     "beyond": {
@@ -346,21 +614,66 @@
         "Life — skateboarding, reptile-sanctuary volunteer, and a partner who believes in me."
       ],
       "media": [
-        { "src": "/media/music/music__don-stratocaster.png", "alt": "Don playing a Stratocaster" },
-        { "src": "/media/music/music__don-bass.jpg", "alt": "Don playing bass" },
-        { "src": "/media/music/music__don-live-performance.jpg", "alt": "Don performing live" },
-        { "src": "/media/music/music__don-rubens-tube.jpg", "alt": "Don with a Rubens tube" },
-        { "src": "/media/music/music__ted-and-the-muskrats.jpg", "alt": "Ted and the Muskrats" },
-        { "src": "/media/music/music__on-the-road-looping.mp4", "alt": "Live looping performance" },
-        { "src": "/media/music/music__button-piano.mp4", "alt": "Physical button piano" },
-        { "src": "/media/activism/activism__leading-march-for-science.jpg", "alt": "Leading the March for Science" },
-        { "src": "/media/activism/activism__march-for-science.jpg", "alt": "March for Science crowd" },
-        { "src": "/media/activism/activism__kjzz-radio.jpg", "alt": "At KJZZ radio" },
-        { "src": "/media/personal/personal__skate-clip.mp4", "alt": "Skateboarding" },
-        { "src": "/media/personal/personal__double-tre-flip.mp4", "alt": "Double tre flip" },
-        { "src": "/media/personal/personal__don-firebender.png", "alt": "Fire performance" },
-        { "src": "/media/personal/personal__don-courtney-hobbiton.jpg", "alt": "Don and Courtney at Hobbiton" },
-        { "src": "/media/personal/personal__don-courtney-wedding.jpg", "alt": "Don and Courtney — wedding" }
+        {
+          "src": "/media/music/music__don-stratocaster.png",
+          "alt": "Don playing a Stratocaster"
+        },
+        {
+          "src": "/media/music/music__don-bass.jpg",
+          "alt": "Don playing bass"
+        },
+        {
+          "src": "/media/music/music__don-live-performance.jpg",
+          "alt": "Don performing live"
+        },
+        {
+          "src": "/media/music/music__don-rubens-tube.jpg",
+          "alt": "Don with a Rubens tube"
+        },
+        {
+          "src": "/media/music/music__ted-and-the-muskrats.jpg",
+          "alt": "Ted and the Muskrats"
+        },
+        {
+          "src": "/media/music/music__on-the-road-looping.mp4",
+          "alt": "Live looping performance"
+        },
+        {
+          "src": "/media/music/music__button-piano.mp4",
+          "alt": "Physical button piano"
+        },
+        {
+          "src": "/media/activism/activism__leading-march-for-science.jpg",
+          "alt": "Leading the March for Science"
+        },
+        {
+          "src": "/media/activism/activism__march-for-science.jpg",
+          "alt": "March for Science crowd"
+        },
+        {
+          "src": "/media/activism/activism__kjzz-radio.jpg",
+          "alt": "At KJZZ radio"
+        },
+        {
+          "src": "/media/personal/personal__skate-clip.mp4",
+          "alt": "Skateboarding"
+        },
+        {
+          "src": "/media/personal/personal__double-tre-flip.mp4",
+          "alt": "Double tre flip"
+        },
+        {
+          "src": "/media/personal/personal__don-firebender.png",
+          "alt": "Fire performance"
+        },
+        {
+          "src": "/media/personal/personal__don-courtney-hobbiton.jpg",
+          "alt": "Don and Courtney at Hobbiton"
+        },
+        {
+          "src": "/media/personal/personal__don-courtney-wedding.jpg",
+          "alt": "Don and Courtney — wedding"
+        }
       ]
     }
   }

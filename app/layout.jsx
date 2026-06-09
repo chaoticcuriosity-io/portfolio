@@ -1,6 +1,8 @@
 import "./globals.css";
 import Nav from "./_components/Nav";
 import Footer from "./_components/Footer";
+import EditorProvider from "./_components/editable/EditorProvider";
+import { CONTENT } from "./_data/site";
 
 export const metadata = {
   title: "Don Balanzat — Physicist · Engineer · Builder",
@@ -20,10 +22,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="cosmos" />
-        <Nav />
-        {children}
-        <Footer />
+        <EditorProvider initialContent={CONTENT}>
+          <div className="cosmos" />
+          <Nav />
+          {children}
+          <Footer />
+        </EditorProvider>
       </body>
     </html>
   );

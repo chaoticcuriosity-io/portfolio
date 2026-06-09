@@ -1,7 +1,12 @@
+"use client";
 import Link from "next/link";
-import { DOMAIN_ORDER, DOMAINS, PROFILE } from "../_data/site";
+import { useContent } from "./editable/context";
 
 export default function Nav() {
+  const order = useContent("home.domains.order");
+  const domainsData = useContent("domainsData");
+  const profile = useContent("profile");
+
   return (
     <nav className="nav">
       <div className="wrap nav-inner">
@@ -9,13 +14,13 @@ export default function Nav() {
           <span className="dot">D</span> Don Balanzat
         </Link>
         <div className="nav-links">
-          {DOMAIN_ORDER.map((slug) => (
-            <Link key={slug} href={`/${slug}`}>{DOMAINS[slug].name}</Link>
+          {order.map((slug) => (
+            <Link key={slug} href={`/${slug}`}>{domainsData[slug].name}</Link>
           ))}
           <Link href="/beyond">Beyond</Link>
           <Link href="/about">About</Link>
         </div>
-        <a className="nav-cta" href={PROFILE.resume} target="_blank" rel="noopener">Résumé ↗</a>
+        <a className="nav-cta" href={profile.resume} target="_blank" rel="noopener">Résumé ↗</a>
       </div>
     </nav>
   );

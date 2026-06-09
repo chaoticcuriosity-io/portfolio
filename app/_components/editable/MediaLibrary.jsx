@@ -1,7 +1,9 @@
 "use client";
 // Dev-only media picker. Lists existing files from /api/dev/media and uploads new ones via
-// /api/dev/upload. Only ever rendered while editing, so it never runs in production.
+// /api/dev/upload. Rendered through a portal to <body> so it overlays everything, escaping the
+// card/stacking context it is triggered from. Only ever rendered while editing.
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 const FOLDERS = ["ai", "space", "xr", "robotics", "physics", "education", "music", "activism", "personal"];
 
@@ -10,6 +12,7 @@ export default function MediaLibrary({ currentSrc, folder, onPick, onClose }) {
   const [filter, setFilter] = useState("all");
   const [uploadFolder, setUploadFolder] = useState(FOLDERS.includes(folder) ? folder : "personal");
   const [busy, setBusy] = useState(false);
+  const [dragOver, setDragOver] = useState(false);
   const [error, setError] = useState(null);
   const fileRef = useRef(null);
 
@@ -47,48 +50,54 @@ export default function MediaLibrary({ currentSrc, folder, onPick, onClose }) {
     }
   }
 
+  if (typeof document === "undefined") return null;
+
   const shown = (items || []).filter((it) => filter === "all" || it.folder === filter);
 
-  return (
+  const modal = (
     <div className="cc-ml-backdrop" onMouseDown={onClose} role="dialog" aria-modal="true">
       <div className="cc-ml" onMouseDown={(e) => e.stopPropagation()}>
         <div className="cc-ml-head">
           <strong>Media library</strong>
-          <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-            <option value="all">All folders</option>
-            {FOLDERS.map((f) => <option key={f} value={f}>{f}</option>)}
-          </select>
+          <label className="cc-ml-filter">
+            Show
+            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+              <option value="all">All folders</option>
+              {FOLDERS.map((f) => <option key={f} value={f}>{f}</option>)}
+            </select>
+          </label>
           <span className="cc-eb-grow" />
-          <span className="cc-ml-up">
+          <label className="cc-ml-up">
             Upload to
             <select value={uploadFolder} onChange={(e) => setUploadFolder(e.target.value)}>
               {FOLDERS.map((f) => <option key={f} value={f}>{f}</option>)}
             </select>
-            <button type="button" onClick={() => fileRef.current?.click()} disabled={busy}>
-              {busy ? "Uploading…" : "Choose file"}
-            </button>
-            <input
-              ref={fileRef}
-              type="file"
-              accept="image/*,video/*"
-              hidden
-              onChange={(e) => upload(e.target.files?.[0])}
-            />
-          </span>
+          </label>
+          <button type="button" className="cc-ml-upbtn" onClick={() => fileRef.current?.click()} disabled={busy}>
+            {busy ? "Uploading…" : "⬆ Upload photo / video"}
+          </button>
+          <input
+            ref={fileRef}
+            type="file"
+            accept="image/*,video/*"
+            hidden
+            onChange={(e) => { upload(e.target.files?.[0]); e.target.value = ""; }}
+          />
           <button type="button" className="cc-ml-close" onClick={onClose} aria-label="Close">×</button>
         </div>
 
         {error && <div className="cc-ml-error">{error}</div>}
 
         <div
-          className="cc-ml-grid"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => { e.preventDefault(); upload(e.dataTransfer.files?.[0]); }}
+          className={"cc-ml-grid" + (dragOver ? " cc-ml-dragover" : "")}
+          onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+          onDragLeave={() => setDragOver(false)}
+          onDrop={(e) => { e.preventDefault(); setDragOver(false); upload(e.dataTransfer.files?.[0]); }}
         >
           {items === null ? (
             <div className="cc-ml-empty">Loading…</div>
           ) : shown.length === 0 ? (
-            <div className="cc-ml-empty">No media in this folder.</div>
+            <div className="cc-ml-empty">No media here yet — drop a file or use Upload above.</div>
           ) : (
             shown.map((it) => (
               <button
@@ -101,12 +110,15 @@ export default function MediaLibrary({ currentSrc, folder, onPick, onClose }) {
                 {it.video
                   ? <video src={it.src} muted loop playsInline preload="metadata" />
                   : <img src={it.src} alt="" loading="lazy" />}
+                <span className="cc-ml-name">{it.name}</span>
               </button>
             ))
           )}
         </div>
-        <div className="cc-ml-foot">Click a tile to use it · drag a file onto the grid to upload</div>
+        <div className="cc-ml-foot">Click a photo to use it · drag a file anywhere here to upload</div>
       </div>
     </div>
   );
+
+  return createPortal(modal, document.body);
 }

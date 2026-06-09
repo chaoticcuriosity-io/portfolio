@@ -151,31 +151,59 @@
   padding: 6px 10px;
   cursor: pointer;
 }
+.cc-ml-filter,
 .cc-ml-up { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted, #9aa6c2); }
+.cc-ml-upbtn {
+  background: #6ea8fe !important;
+  color: #08101f !important;
+  border-color: #6ea8fe !important;
+  font-weight: 600;
+}
+.cc-ml-upbtn:hover:not(:disabled) { background: #87b6ff !important; }
 .cc-ml-close { font-size: 18px; line-height: 1; padding: 4px 10px !important; }
 .cc-ml-error { padding: 8px 16px; color: #f87171; font-size: 13px; }
 .cc-ml-grid {
   flex: 1;
   overflow: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
   padding: 16px;
+  border-radius: 12px;
+  border: 2px dashed transparent;
 }
+.cc-ml-grid.cc-ml-dragover { border-color: #6ea8fe; background: rgba(110, 168, 254, 0.08); }
 .cc-ml-tile {
   position: relative;
   aspect-ratio: 1;
   padding: 0;
-  border: 2px solid transparent;
+  border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   overflow: hidden;
-  background: #060912;
+  background: #04060d;
   cursor: pointer;
 }
+/* Show the whole photo/video (letterboxed) so it can be identified, never cropped. */
 .cc-ml-tile img,
-.cc-ml-tile video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cc-ml-tile:hover { border-color: rgba(110, 168, 254, 0.6); }
+.cc-ml-tile video { width: 100%; height: 100%; object-fit: contain; display: block; }
+.cc-ml-tile:hover { border-color: rgba(110, 168, 254, 0.7); }
 .cc-ml-tile.cc-sel { border-color: #fbbf24; }
+.cc-ml-name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4px 6px;
+  font: 500 10px/1.3 "JetBrains Mono", monospace;
+  color: #cdd6ee;
+  background: linear-gradient(transparent, rgba(2, 4, 10, 0.92));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.cc-ml-tile:hover .cc-ml-name { opacity: 1; }
 .cc-ml-empty { grid-column: 1 / -1; text-align: center; color: var(--muted, #9aa6c2); padding: 40px; }
 .cc-ml-foot { padding: 10px 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 12px; color: var(--faint, #6b7494); }
 

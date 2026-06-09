@@ -176,3 +176,146 @@
 .cc-ml-tile.cc-sel { border-color: #fbbf24; }
 .cc-ml-empty { grid-column: 1 / -1; text-align: center; color: var(--muted, #9aa6c2); padding: 40px; }
 .cc-ml-foot { padding: 10px 16px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 12px; color: var(--faint, #6b7494); }
+
+/* ===== Structural editing: drag handles, remove/add, sections ===== */
+.cc-item { position: relative; }
+
+.cc-drag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  font-size: 14px;
+  color: #08101f;
+  background: rgba(110, 168, 254, 0.92);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.cc-drag:active { cursor: grabbing; }
+
+.cc-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(248, 113, 113, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.cc-remove:hover { background: #ef4444; }
+
+/* Card / tile overlays: float handle + remove on the corners. */
+.cc-item > .cc-drag { position: absolute; top: 8px; left: 8px; z-index: 6; opacity: 0; transition: opacity 0.15s; }
+.cc-item > .cc-remove { position: absolute; top: 8px; right: 8px; z-index: 6; opacity: 0; transition: opacity 0.15s; }
+.cc-item:hover > .cc-drag,
+.cc-item:hover > .cc-remove { opacity: 1; }
+
+/* Row lists (mission, bullets): inline handle + text + remove. */
+.cc-row { display: flex; align-items: flex-start; gap: 8px; list-style: none; }
+.cc-row .cc-drag { flex: 0 0 auto; margin-top: 2px; }
+.cc-row .cc-remove { flex: 0 0 auto; }
+.cc-row [data-cc-edit] { flex: 1; }
+
+.cc-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 14px;
+  padding: 8px 14px;
+  border: 1px dashed rgba(110, 168, 254, 0.5);
+  border-radius: 10px;
+  background: rgba(110, 168, 254, 0.08);
+  color: #6ea8fe;
+  font: 600 13px/1 Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+.cc-add:hover { background: rgba(110, 168, 254, 0.16); }
+
+.cc-add-tile {
+  aspect-ratio: 1;
+  border: 2px dashed rgba(110, 168, 254, 0.5);
+  border-radius: 12px;
+  background: rgba(110, 168, 254, 0.06);
+  color: #6ea8fe;
+  font: 600 13px/1.2 Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+.cc-add-tile:hover { background: rgba(110, 168, 254, 0.14); }
+
+/* Section reorder/visibility frame. */
+.cc-section { position: relative; outline: 1px dashed rgba(110, 168, 254, 0.22); outline-offset: -1px; }
+.cc-section > .cc-section-bar {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  border-radius: 9px;
+  background: rgba(10, 13, 24, 0.92);
+  border: 1px solid rgba(110, 168, 254, 0.28);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  opacity: 0.25;
+  transition: opacity 0.15s;
+}
+.cc-section:hover > .cc-section-bar { opacity: 1; }
+.cc-section-name {
+  font: 600 11px/1 "JetBrains Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9aa6c2;
+  padding: 0 4px;
+}
+.cc-section-bar button {
+  font: 600 12px/1 Inter, system-ui, sans-serif;
+  color: #e8ecf6;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.cc-section-bar button:disabled { opacity: 0.35; cursor: default; }
+.cc-section.cc-hidden { opacity: 0.4; }
+.cc-section.cc-hidden::before {
+  content: "Hidden";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 50;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font: 600 11px/1 "JetBrains Mono", monospace;
+  color: #fbbf24;
+  background: rgba(10, 13, 24, 0.9);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+/* Accent colour picker. */
+.cc-color {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 6px 10px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font: 500 12px/1 "JetBrains Mono", monospace;
+  color: #e8ecf6;
+  cursor: pointer;
+}
+.cc-color input[type="color"] { width: 26px; height: 26px; padding: 0; border: 0; background: none; cursor: pointer; }

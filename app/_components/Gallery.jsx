@@ -1,12 +1,35 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { isVideo } from "../_data/site";
-import { useEditing } from "./editable/context";
+import { useEditorCtx } from "./editable/context";
 import EditableMedia, { folderFromSrc } from "./editable/EditableMedia";
 import EditableText from "./editable/EditableText";
+import MediaLibrary from "./editable/MediaLibrary";
+import Sortable from "./editable/Sortable";
+import SortableItem from "./editable/SortableItem";
+import { DragHandle, RemoveButton } from "./editable/controls";
+
+function AddMediaTile({ basePath, folder, addItem }) {
+  const [picking, setPicking] = useState(false);
+  return (
+    <>
+      <button type="button" className="tile cc-add-tile" onClick={() => setPicking(true)}>
+        + Add media
+      </button>
+      {picking && (
+        <MediaLibrary
+          folder={folder}
+          currentSrc={null}
+          onClose={() => setPicking(false)}
+          onPick={(src) => { setPicking(false); if (src) addItem(basePath, { src, alt: "" }); }}
+        />
+      )}
+    </>
+  );
+}
 
 export default function Gallery({ items, basePath }) {
-  const editing = useEditing();
+  const { editing, removeItem, addItem } = useEditorCtx();
   const [open, setOpen] = useState(null); // index or null
 
   const close = useCallback(() => setOpen(null), []);
@@ -29,32 +52,51 @@ export default function Gallery({ items, basePath }) {
   }, [open, close, prev, next]);
 
   const cur = open === null ? null : items[open];
-  const Tile = editing ? "div" : "button";
+  const defaultFolder = (/\.([^.]+)\.media$/.exec(basePath || "")?.[1]) || "personal";
+
+  const tile = (it, i, s) => {
+    const media = (
+      <EditableMedia path={`${basePath}.${i}.src`} src={it.src} folder={folderFromSrc(it.src) || defaultFolder}>
+        {isVideo(it.src) ? (
+          <video src={it.src} muted loop autoPlay playsInline preload="metadata" />
+        ) : (
+          <img src={it.src} alt={it.alt || ""} loading="lazy" />
+        )}
+      </EditableMedia>
+    );
+    const cap = it.caption
+      ? (editing
+          ? <EditableText as="span" className="tile-cap" value={it.caption} path={`${basePath}.${i}.caption`} />
+          : <span className="tile-cap">{it.caption}</span>)
+      : null;
+
+    if (!editing) {
+      return (
+        <button className="tile" onClick={() => setOpen(i)} aria-label={it.alt || "media"}>
+          {media}
+          {cap}
+        </button>
+      );
+    }
+    return (
+      <div className="tile cc-item" ref={s.setNodeRef} style={s.style}>
+        <DragHandle handle={s.handle} />
+        <RemoveButton onClick={() => removeItem(basePath, i)} label="Remove media" />
+        {media}
+        {cap}
+      </div>
+    );
+  };
 
   return (
     <>
       <div className="gallery">
-        {items.map((it, i) => (
-          <Tile
-            className="tile"
-            key={it.src}
-            {...(editing ? {} : { onClick: () => setOpen(i), "aria-label": it.alt || "media" })}
-          >
-            <EditableMedia path={`${basePath}.${i}.src`} src={it.src} folder={folderFromSrc(it.src)}>
-              {isVideo(it.src) ? (
-                <video src={it.src} muted loop autoPlay playsInline preload="metadata" />
-              ) : (
-                <img src={it.src} alt={it.alt || ""} loading="lazy" />
-              )}
-            </EditableMedia>
-            {it.caption &&
-              (editing ? (
-                <EditableText as="span" className="tile-cap" value={it.caption} path={`${basePath}.${i}.caption`} />
-              ) : (
-                <span className="tile-cap">{it.caption}</span>
-              ))}
-          </Tile>
-        ))}
+        <Sortable path={basePath} ids={items.map((it) => it.src)} strategy="rect">
+          {items.map((it, i) => (
+            <SortableItem key={it.src} id={it.src} render={(s) => tile(it, i, s)} />
+          ))}
+        </Sortable>
+        {editing && <AddMediaTile basePath={basePath} folder={defaultFolder} addItem={addItem} />}
       </div>
 
       {cur && (

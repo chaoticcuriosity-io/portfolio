@@ -1,23 +1,30 @@
 import "./globals.css";
+import Nav from "./_components/Nav";
+import Footer from "./_components/Footer";
 
 export const metadata = {
-  title: "Don Balanzat — AI Enablement Leader & Builder",
+  title: "Don Balanzat — Physicist · Engineer · Builder",
   description:
-    "I lead enterprise AI enablement and still ship the tools myself — agents, internal tooling, ML pipelines, and immersive systems. Currently AI Enablement Lead at Zillow.",
+    "A decade making hard technology usable — across physics, space, immersive reality, robotics, and AI. AI Enablement Lead at Zillow; founder of Chaotic Curiosity.",
   metadataBase: new URL("https://donbalanzat.com"),
   openGraph: {
-    title: "Don Balanzat — AI Enablement Leader & Builder",
-    description:
-      "Enterprise AI enablement, built by someone who actually builds. AI Enablement Lead at Zillow.",
+    title: "Don Balanzat — Physicist · Engineer · Builder",
+    description: "Physics · Space · XR · Robotics · AI. AI Enablement Lead at Zillow.",
     type: "website",
+    images: ["/media/space/space__don-blue-moon.jpg"],
   },
-  icons: { icon: "/images/cc-logo.png" },
+  icons: { icon: "/media/cc-logo.png" },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="cosmos" />
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

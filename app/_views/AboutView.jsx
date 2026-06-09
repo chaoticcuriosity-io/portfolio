@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useContent } from "../_components/editable/context";
 import EditableText from "../_components/editable/EditableText";
 import EditableRichText from "../_components/editable/EditableRichText";
+import EditableMedia from "../_components/editable/EditableMedia";
 import { resolveRef } from "../_data/site";
 
 const H4_HEAD = { fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--faint)", margin: "26px 0 12px" };
@@ -44,7 +45,9 @@ export default function AboutView() {
           </div>
 
           <aside className="about-side">
-            <img src={resolveRef(about.sideImage)} alt={about.sideImageAlt} />
+            <EditableMedia path="about.sideImage" src={resolveRef(about.sideImage)} folder="space">
+              <img src={resolveRef(about.sideImage)} alt={about.sideImageAlt} />
+            </EditableMedia>
             <h4>{about.nowHeading}</h4>
             <ul>
               {about.now.map((n) => <li key={n}><span>▹</span>{" " + n}</li>)}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useContent } from "../_components/editable/context";
 import EditableText from "../_components/editable/EditableText";
 import EditableRichText from "../_components/editable/EditableRichText";
+import EditableMedia from "../_components/editable/EditableMedia";
 import { resolveRef, isVideo } from "../_data/site";
 
 function Cta({ cta }) {
@@ -35,7 +36,9 @@ export default function HomeView() {
             </div>
           </div>
           <div className="portrait">
-            <img src={profile.heroImage} alt={home.hero.portraitAlt} />
+            <EditableMedia path="profile.heroImage" src={profile.heroImage} folder="space">
+              <img src={profile.heroImage} alt={home.hero.portraitAlt} />
+            </EditableMedia>
             <EditableRichText as="div" className="tag mono" tokens={home.hero.portraitTag} path="home.hero.portraitTag" />
           </div>
         </div>
@@ -114,13 +117,17 @@ export default function HomeView() {
         <div className="wrap">
           <div className="cc-band">
             <div>
-              <img className="cc-logo" src={home.studio.logo} alt={home.studio.logoAlt} />
+              <EditableMedia path="home.studio.logo" src={home.studio.logo} folder="personal">
+                <img className="cc-logo" src={home.studio.logo} alt={home.studio.logoAlt} />
+              </EditableMedia>
               <EditableText as="h2" className="serif" value={home.studio.title} path="home.studio.title" />
               <EditableText as="p" multiline value={home.studio.body} path="home.studio.body" />
               <Cta cta={home.studio.button} />
             </div>
             <div className="media">
-              <video src={home.studio.video} muted loop autoPlay playsInline preload="metadata" />
+              <EditableMedia path="home.studio.video" src={home.studio.video} folder="ai">
+                <video src={home.studio.video} muted loop autoPlay playsInline preload="metadata" />
+              </EditableMedia>
             </div>
           </div>
         </div>

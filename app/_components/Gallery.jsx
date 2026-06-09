@@ -1,8 +1,12 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { isVideo } from "../_data/site";
+import { useEditing } from "./editable/context";
+import EditableMedia, { folderFromSrc } from "./editable/EditableMedia";
+import EditableText from "./editable/EditableText";
 
-export default function Gallery({ items }) {
+export default function Gallery({ items, basePath }) {
+  const editing = useEditing();
   const [open, setOpen] = useState(null); // index or null
 
   const close = useCallback(() => setOpen(null), []);
@@ -25,19 +29,31 @@ export default function Gallery({ items }) {
   }, [open, close, prev, next]);
 
   const cur = open === null ? null : items[open];
+  const Tile = editing ? "div" : "button";
 
   return (
     <>
       <div className="gallery">
         {items.map((it, i) => (
-          <button className="tile" key={it.src} onClick={() => setOpen(i)} aria-label={it.alt || "media"}>
-            {isVideo(it.src) ? (
-              <video src={it.src} muted loop autoPlay playsInline preload="metadata" />
-            ) : (
-              <img src={it.src} alt={it.alt || ""} loading="lazy" />
-            )}
-            {it.caption && <span className="tile-cap">{it.caption}</span>}
-          </button>
+          <Tile
+            className="tile"
+            key={it.src}
+            {...(editing ? {} : { onClick: () => setOpen(i), "aria-label": it.alt || "media" })}
+          >
+            <EditableMedia path={`${basePath}.${i}.src`} src={it.src} folder={folderFromSrc(it.src)}>
+              {isVideo(it.src) ? (
+                <video src={it.src} muted loop autoPlay playsInline preload="metadata" />
+              ) : (
+                <img src={it.src} alt={it.alt || ""} loading="lazy" />
+              )}
+            </EditableMedia>
+            {it.caption &&
+              (editing ? (
+                <EditableText as="span" className="tile-cap" value={it.caption} path={`${basePath}.${i}.caption`} />
+              ) : (
+                <span className="tile-cap">{it.caption}</span>
+              ))}
+          </Tile>
         ))}
       </div>
 

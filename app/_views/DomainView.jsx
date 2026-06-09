@@ -31,7 +31,7 @@ export default function DomainView({ slug }) {
             </ul>
           </aside>
           <div>
-            <Gallery items={d.media} />
+            <Gallery items={d.media} basePath={`domainsData.${slug}.media`} />
           </div>
         </div>
       </div>

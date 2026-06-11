@@ -318,14 +318,8 @@
           "alt": "You + AI workshop session"
         },
         {
-          "src": "/media/ai/ai__kiewet-source-photo.png",
-          "alt": "Source site photo — input to the image→3D pipeline",
-          "caption": "1 · Source photo"
-        },
-        {
-          "src": "/media/ai/ai__kiewet-imagegen.png",
-          "alt": "AI-generated clean reference of a steel beam",
-          "caption": "2 · AI image generation"
+          "src": "/media/ai/ai__don-at-pd-summit.jpg",
+          "alt": "Generative VFX clip"
         },
         {
           "src": "/media/ai/ai__kiewet-3d-model.png",
@@ -333,12 +327,12 @@
           "caption": "3 · Generated 3D model"
         },
         {
-          "src": "/media/ai/ai__llm-experience.mp4",
-          "alt": "LLM experience demo"
+          "src": "/media/ai/ai__kiewet-jug-sidebyside.png",
+          "alt": ""
         },
         {
-          "src": "/media/ai/ai__vfx-clip.mp4",
-          "alt": "Generative VFX clip"
+          "src": "/media/ai/ai__chaotic-curiosity-reel.mp4",
+          "alt": ""
         }
       ]
     },
@@ -452,6 +446,10 @@
         {
           "src": "/media/xr/xr__hyperspace-flyer.jpg",
           "alt": "Hyperspace: XR + AI course flyer"
+        },
+        {
+          "src": "/media/xr/xr__vr-speaker.mp4",
+          "alt": ""
         }
       ]
     },
@@ -478,24 +476,12 @@
           "alt": "Velocity policy training progression"
         },
         {
-          "src": "/media/robotics/robotics__humanoid-backflip.mp4",
-          "alt": "Humanoid backflip reference"
-        },
-        {
-          "src": "/media/robotics/robotics__g1-progression-chase.mp4",
-          "alt": "Humanoid progression, chase camera"
-        },
-        {
           "src": "/media/robotics/robotics__isaac-lab-screencast.mp4",
           "alt": "Isaac Lab training screencast"
         },
         {
           "src": "/media/robotics/robotics__reachy-hello.mp4",
           "alt": "Reachy robot waving hello"
-        },
-        {
-          "src": "/media/robotics/robotics__reachy-postman.mp4",
-          "alt": "Reachy robot manipulation"
         },
         {
           "src": "/media/robotics/robotics__robotics-clip.mp4",
@@ -603,10 +589,6 @@
         {
           "src": "/media/education/education__tec-for-girls.jpg",
           "alt": "TEC is for Girls conference"
-        },
-        {
-          "src": "/media/education/education__speaker-talk.mp4",
-          "alt": "Speaking engagement"
         }
       ]
     },

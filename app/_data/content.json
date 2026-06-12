@@ -322,16 +322,15 @@
           "alt": "Generative VFX clip"
         },
         {
-          "src": "/media/ai/ai__kiewet-3d-model.png",
-          "alt": "Cleaned, rigged 3D model turntable",
-          "caption": "3 · Generated 3D model"
-        },
-        {
           "src": "/media/ai/ai__kiewet-jug-sidebyside.png",
           "alt": ""
         },
         {
           "src": "/media/ai/ai__chaotic-curiosity-reel.mp4",
+          "alt": ""
+        },
+        {
+          "src": "/media/robotics/robotics__robotics-clip.mp4",
           "alt": ""
         }
       ]
